@@ -15,7 +15,6 @@ CREATE TABLE IF NOT EXISTS Camion(
     id SERIAL,
     Horas INT NULL,
     Dias VARCHAR (100) NULL,
-    Rutas_id INT  NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY(Rutas_id) references Rutas(id)
+    PRIMARY KEY (id)
+
  );

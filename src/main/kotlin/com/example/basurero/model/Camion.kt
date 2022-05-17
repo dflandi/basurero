@@ -10,6 +10,7 @@ class Camion{
     var id: Long? = null
     var Horas: Long? = null
     var Dias: String? = null
-    var Rutas_id:Long?=null
+    @Column(name = "Rutas_id")
+    var RutasId:Long?=null
 
 }

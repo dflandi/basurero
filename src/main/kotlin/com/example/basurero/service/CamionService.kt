@@ -12,6 +12,7 @@ import java.util.*
 class CamionService {
     @Autowired
     lateinit var camionRepository: CamionRepository
+    @Autowired
     lateinit var rutasRepository: RutasRepository
 
 
@@ -21,7 +22,10 @@ class CamionService {
 
     fun save(camion: Camion):Camion{
         try {
-           rutasRepository.findById(camion.Rutas_id) ?: throw Exception("Id de profesor no existe")
+            camion.Dias?.takeIf { it.trim().isNotEmpty() }
+                ?: throw Exception("Descripción no debe ser vacio")
+           rutasRepository.findById(camion.RutasId)
+               ?: throw Exception("Id Rutas no existe")
             return camionRepository.save(camion)
         }catch (ex : Exception){
             throw ResponseStatusException(
@@ -32,7 +36,8 @@ class CamionService {
 
     fun update(camion: Camion): Camion {
         try {
-            camionRepository.findById(camion.id) ?: throw Exception("El id ${camion.id} el estudiante no existe")
+            camionRepository.findById(camion.id)
+                ?: throw Exception("El id ${camion.id} de Camion no existe")
 
             return camionRepository.save(camion)
         }
