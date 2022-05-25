@@ -1,6 +1,7 @@
 ALTER TABLE Camion
-    ADD COLUMN Rutas_id INT NOT NULL;
+    ADD COLUMN rutas_id INT NOT NULL;
 
 
 ALTER TABLE Camion
-    ADD FOREIGN KEY (Rutas_id) REFERENCES Rutas(id);
+    ADD FOREIGN KEY (rutas_id) REFERENCES Rutas(id);
+

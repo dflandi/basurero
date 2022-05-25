@@ -1,21 +1,37 @@
+package com.example.basurero.service;
 
-
+import com.example.basurero.model.Usuarios
+import com.example.basurero.repository.RutasRepository
 import com.example.basurero.repository.UsuariosRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.HttpStatus
 
 import org.springframework.stereotype.Service
+import org.springframework.web.server.ResponseStatusException
 import java.util.*
 
 @Service
 class UsuariosService {
     @Autowired
     lateinit var usuariosRepository: UsuariosRepository
+    @Autowired
+    lateinit var rutasRepository: RutasRepository
+
         fun list() : List<Usuarios> {
         return usuariosRepository.findAll()
         }
 
     fun save (usuarios: Usuarios):Usuarios{
+        try {
+            usuarios.nombre?.takeIf { it.trim().isNotEmpty() }
+                ?: throw Exception("Descripción no debe ser vacio")
+            rutasRepository.findById(usuarios.rutasId)
+                ?: throw Exception("Id Rutas no existe")
         return usuariosRepository.save(usuarios)
+        }catch (ex : Exception){
+            throw ResponseStatusException(
+                HttpStatus.NOT_FOUND, ex.message, ex)
+        }
     }
     //update tb set  name = "juan" where  id=3
     fun update (usuarios:Usuarios):Usuarios{
@@ -28,7 +44,7 @@ class UsuariosService {
         val response = usuariosRepository.findById(usuarios.id)
             ?: throw Exception()
 
-        response.Edad=usuarios.Edad
+        response.edad=usuarios.edad
 
 
         return usuariosRepository.save(response)

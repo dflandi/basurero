@@ -1,5 +1,8 @@
+package com.example.basurero.controller;
 
 
+import com.example.basurero.model.Usuarios
+import com.example.basurero.service.UsuariosService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 
@@ -14,7 +17,7 @@ class UsuariosController {
     lateinit var usuariosService: UsuariosService
 
     @GetMapping
-    fun list ():List < Usuarios>{
+    fun list ():List <Usuarios>{
         return usuariosService.list()
     }
     @GetMapping("/{id}")

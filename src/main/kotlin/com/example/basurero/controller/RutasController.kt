@@ -1,5 +1,8 @@
+package com.example.basurero.controller;
 
 
+import com.example.basurero.model.Rutas
+import com.example.basurero.service.RutasService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 
@@ -37,4 +40,3 @@ class RutasController {
         return rutasService.getById(id)
     }
 }
-

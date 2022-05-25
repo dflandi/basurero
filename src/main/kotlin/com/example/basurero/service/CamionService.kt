@@ -1,4 +1,5 @@
-
+package com.example.basurero.service;
+import com.example.basurero.model.Camion
 import com.example.basurero.repository.CamionRepository
 import com.example.basurero.repository.RutasRepository
 import org.springframework.beans.factory.annotation.Autowired
@@ -22,9 +23,9 @@ class CamionService {
 
     fun save(camion: Camion):Camion{
         try {
-            camion.Dias?.takeIf { it.trim().isNotEmpty() }
+            camion.dias?.takeIf { it.trim().isNotEmpty() }
                 ?: throw Exception("Descripción no debe ser vacio")
-           rutasRepository.findById(camion.RutasId)
+           rutasRepository.findById(camion.rutasId)
                ?: throw Exception("Id Rutas no existe")
             return camionRepository.save(camion)
         }catch (ex : Exception){
@@ -32,6 +33,7 @@ class CamionService {
                 HttpStatus.NOT_FOUND, ex.message, ex)
         }
     }
+
 
 
     fun update(camion: Camion): Camion {
@@ -51,8 +53,8 @@ class CamionService {
         val response = camionRepository.findById(camion.id)
             ?: throw Exception()
 
-        response.Dias=camion.Dias
-        response.Horas=camion.Horas
+        response.dias=camion.dias
+        response.horas=camion.horas
 
         return camionRepository.save(response)
     }

@@ -1,20 +1,20 @@
 CREATE TABLE IF NOT EXISTS Usuarios(
 id SERIAL,
-Nombre VARCHAR (100) NOT NULL,
-Edad INT NULL,
+nombre VARCHAR (100) NOT NULL,
+edad INT NULL,
 PRIMARY KEY (id)
  );
 
 CREATE TABLE IF NOT EXISTS Rutas(
 id SERIAL,
-NombreRutas VARCHAR (100)  NULL,
-TiempoRutas INT,
+nombreRutas VARCHAR (100)  NULL,
+tiempoRutas INT,
 PRIMARY KEY (id)
 );
 CREATE TABLE IF NOT EXISTS Camion(
     id SERIAL,
-    Horas INT NULL,
-    Dias VARCHAR (100) NULL,
+    horas INT NULL,
+    dias VARCHAR (100) NULL,
     PRIMARY KEY (id)
 
  );

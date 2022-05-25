@@ -1,3 +1,4 @@
+package com.example.basurero.model;
 import javax.persistence.*
 
 @Entity
@@ -7,6 +8,8 @@ class Usuarios {
     @Id
     @Column(updatable = false)
     var id: Long? = null
-    var Edad: Long? = null
-    var Nombre: String? = null
+    var edad: Long? = null
+    var nombre: String? = null
+    @Column(name = "Rutas_id")
+    var rutasId:Long?=null
 }
