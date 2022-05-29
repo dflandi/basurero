@@ -14,8 +14,6 @@ import java.util.*
 class UsuariosService {
     @Autowired
     lateinit var usuariosRepository: UsuariosRepository
-    @Autowired
-    lateinit var rutasRepository: RutasRepository
 
         fun list() : List<Usuarios> {
         return usuariosRepository.findAll()
@@ -25,8 +23,7 @@ class UsuariosService {
         try {
             usuarios.nombre?.takeIf { it.trim().isNotEmpty() }
                 ?: throw Exception("Descripción no debe ser vacio")
-            rutasRepository.findById(usuarios.rutasId)
-                ?: throw Exception("Id Rutas no existe")
+
         return usuariosRepository.save(usuarios)
         }catch (ex : Exception){
             throw ResponseStatusException(
@@ -56,5 +53,8 @@ class UsuariosService {
     }
     fun getById (id: Long?):Usuarios?{
         return usuariosRepository.findById(id)
+    }
+    fun getByName (nombre: String?):List <Usuarios>?{
+        return usuariosRepository.getListName(nombre)
     }
 }

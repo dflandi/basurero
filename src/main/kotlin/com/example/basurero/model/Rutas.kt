@@ -8,9 +8,8 @@ class Rutas{
     @Id
     @Column(updatable=false)
     var id: Long? = null
-    var tiempoRutas: Long? = null
+    var tiempoRutas: String? = null
     var nombreRutas: String? = null
-    @Column(name = "Usuarios_id")
-    var usuariosId:Long?=null
+
 
 }

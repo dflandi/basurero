@@ -10,6 +10,5 @@ class Usuarios {
     var id: Long? = null
     var edad: Long? = null
     var nombre: String? = null
-    @Column(name = "Rutas_id")
-    var rutasId:Long?=null
+
 }

@@ -8,12 +8,12 @@ PRIMARY KEY (id)
 CREATE TABLE IF NOT EXISTS Rutas(
 id SERIAL,
 nombreRutas VARCHAR (100)  NULL,
-tiempoRutas INT,
+tiempoRutas VARCHAR (100) NULL,
 PRIMARY KEY (id)
 );
 CREATE TABLE IF NOT EXISTS Camion(
     id SERIAL,
-    horas INT NULL,
+    horas VARCHAR (100) NULL,
     dias VARCHAR (100) NULL,
     PRIMARY KEY (id)
 

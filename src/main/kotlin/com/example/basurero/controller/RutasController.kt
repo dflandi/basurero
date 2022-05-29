@@ -2,6 +2,7 @@ package com.example.basurero.controller;
 
 
 import com.example.basurero.model.Rutas
+import com.example.basurero.model.Usuarios
 import com.example.basurero.service.RutasService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
@@ -19,8 +20,12 @@ class RutasController {
     fun list ():List <Rutas>{
         return rutasService.list()
     }
+    @GetMapping("/tiempoRutas/{tiempoRutas}")
+    fun listByRoutes (@PathVariable("tiempoRutas")tiempoRutas:String):List<Rutas>?{
+        return  rutasService.getByRoutes(tiempoRutas)
+    }
     @PostMapping
-    fun save(@RequestBody rutas: Rutas) {
+    fun save(@RequestBody rutas: Rutas): Rutas {
         return rutasService.save(rutas)
     }
     @PutMapping

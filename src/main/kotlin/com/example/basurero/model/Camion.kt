@@ -9,7 +9,7 @@ class Camion{
     @Id
     @Column(updatable=false)
     var id: Long? = null
-    var horas: Long? = null
+    var horas: String? = null
     var dias: String? = null
     @Column(name = "Rutas_id")
     var rutasId:Long?=null

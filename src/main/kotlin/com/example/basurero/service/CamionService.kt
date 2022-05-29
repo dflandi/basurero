@@ -1,5 +1,6 @@
 package com.example.basurero.service;
 import com.example.basurero.model.Camion
+import com.example.basurero.model.Rutas
 import com.example.basurero.repository.CamionRepository
 import com.example.basurero.repository.RutasRepository
 import org.springframework.beans.factory.annotation.Autowired
@@ -64,6 +65,9 @@ class CamionService {
     }
     fun getById (id: Long?):Camion?{
         return camionRepository.findById(id)
+    }
+    fun getByTruck (horas: String?):List <Camion>?{
+        return camionRepository.getListTruck(horas)
     }
 
 }

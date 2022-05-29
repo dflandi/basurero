@@ -1,6 +1,7 @@
 package com.example.basurero.controller;
 
 import com.example.basurero.model.Camion
+import com.example.basurero.model.Rutas
 import com.example.basurero.service.CamionService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
@@ -21,6 +22,10 @@ class CamionController {
     @GetMapping("/{id}")
     fun listById (@PathVariable("id") id: Long): Camion?{
         return camionService.getById(id)
+    }
+    @GetMapping("/horas/{horas}")
+    fun listByTruck (@PathVariable("horas")horas:String):List<Camion>?{
+        return camionService.getByTruck(horas)
     }
 
     @PostMapping

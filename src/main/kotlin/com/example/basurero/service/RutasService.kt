@@ -1,6 +1,7 @@
 package com.example.basurero.service;
 
 import com.example.basurero.model.Rutas
+import com.example.basurero.model.Usuarios
 import com.example.basurero.repository.RutasRepository
 import com.example.basurero.repository.UsuariosRepository
 import org.springframework.beans.factory.annotation.Autowired
@@ -13,8 +14,6 @@ import org.springframework.web.server.ResponseStatusException
 class RutasService {
     @Autowired
     lateinit var rutasRepository: RutasRepository
-    @Autowired
-    lateinit var usuariosRepository: UsuariosRepository
 
 
     fun list() : List<Rutas> {
@@ -24,8 +23,7 @@ class RutasService {
 
             try {
                 rutas.nombreRutas?.takeIf { it.trim().isNotEmpty() }
-                    ?: throw Exception("Descripción no debe ser vacio")
-                usuariosRepository.findById(rutas.usuariosId)
+
                     ?: throw Exception("Tiempo de rutas no encontrada")
                 return rutasRepository.save(rutas)
             }catch (ex : Exception){
@@ -63,6 +61,9 @@ class RutasService {
     }
     fun getById (id: Long?):Rutas?{
         return rutasRepository.findById(id)
+    }
+    fun getByRoutes (tiempoRutas: String?):List <Rutas>?{
+        return rutasRepository.getListRoutes(tiempoRutas)
     }
 
 }

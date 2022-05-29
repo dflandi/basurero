@@ -24,6 +24,10 @@ class UsuariosController {
     fun listById (@PathVariable("id") id: Long): Usuarios?{
         return usuariosService.getById(id)
     }
+    @GetMapping("/nombre/{nombre}")
+    fun listByName (@PathVariable("nombre")nombre:String):List<Usuarios>?{
+        return  usuariosService.getByName(nombre)
+    }
 
     @PostMapping
     fun save(@RequestBody usuarios: Usuarios):Usuarios{
@@ -32,6 +36,10 @@ class UsuariosController {
     @PutMapping
     fun update (@RequestBody usuarios: Usuarios):Usuarios{
         return usuariosService.update(usuarios)
+    }
+    @DeleteMapping("/delete/{id}")
+    fun delete (@PathVariable("id")id: Long):Boolean{
+        return usuariosService.delete(id)
     }
     @PatchMapping
     fun updateName (@RequestBody usuarios: Usuarios):Usuarios{
