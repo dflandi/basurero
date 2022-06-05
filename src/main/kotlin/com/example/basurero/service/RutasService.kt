@@ -1,9 +1,8 @@
 package com.example.basurero.service;
 
+import com.example.basurero.dto.TiempoRutasDto
 import com.example.basurero.model.Rutas
-import com.example.basurero.model.Usuarios
 import com.example.basurero.repository.RutasRepository
-import com.example.basurero.repository.UsuariosRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 
@@ -33,15 +32,21 @@ class RutasService {
 
     }
     //update tb set  name = "juan" where  id=3
-    fun update (rutas:Rutas) {
-        try{
+    fun update (rutas:Rutas):Rutas {
+        try {
             rutasRepository.findById(rutas.id)
                 ?: throw Exception("El id ${rutas.id}la tabla Student no existe")
-        }
-        catch (ex:Exception){
+                return rutasRepository.save(rutas) //
+        } catch (ex: Exception) {
             throw throw ResponseStatusException(
-                HttpStatus.NOT_FOUND, ex.message, ex)
+                HttpStatus.NOT_FOUND, ex.message, ex
+            )
         }
+    }
+
+    fun updateOtherTimeRoutes (tiempoRutasDto: TiempoRutasDto): Boolean?{
+        rutasRepository.setOtherTimeRoutes(tiempoRutasDto.tiempoRutas, tiempoRutasDto.nuevoTiempo)
+        return true
     }
 
     fun updateName(rutas: Rutas):Rutas{

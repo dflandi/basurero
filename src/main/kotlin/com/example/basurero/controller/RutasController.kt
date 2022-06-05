@@ -1,8 +1,8 @@
 package com.example.basurero.controller;
 
 
+import com.example.basurero.dto.TiempoRutasDto
 import com.example.basurero.model.Rutas
-import com.example.basurero.model.Usuarios
 import com.example.basurero.service.RutasService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
@@ -24,12 +24,20 @@ class RutasController {
     fun listByRoutes (@PathVariable("tiempoRutas")tiempoRutas:String):List<Rutas>?{
         return  rutasService.getByRoutes(tiempoRutas)
     }
+
+    //localhost:8081/students/changeName
+    @PostMapping("/change/timeRoutes}")
+    fun updateOtherTimeRoutes (@RequestBody tiempoRutasDto: TiempoRutasDto):Boolean?{
+        return  rutasService.updateOtherTimeRoutes(tiempoRutasDto)
+    }
+
+
     @PostMapping
-    fun save(@RequestBody rutas: Rutas): Rutas {
+    fun save( @RequestBody rutas: Rutas): Rutas {
         return rutasService.save(rutas)
     }
     @PutMapping
-    fun update (@RequestBody rutas: Rutas) {
+    fun update (@RequestBody rutas: Rutas):Rutas {
         return rutasService.update(rutas)
     }
     @PatchMapping

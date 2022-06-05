@@ -1,14 +1,13 @@
 package com.example.basurero.service;
 
+import com.example.basurero.dto.User
 import com.example.basurero.model.Usuarios
-import com.example.basurero.repository.RutasRepository
 import com.example.basurero.repository.UsuariosRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 
 import org.springframework.stereotype.Service
 import org.springframework.web.server.ResponseStatusException
-import java.util.*
 
 @Service
 class UsuariosService {
@@ -56,5 +55,8 @@ class UsuariosService {
     }
     fun getByName (nombre: String?):List <Usuarios>?{
         return usuariosRepository.getListName(nombre)
+    }
+    fun newUser(user: User): List<Usuarios>? {
+            return usuariosRepository.newNameUser(user)
     }
 }
