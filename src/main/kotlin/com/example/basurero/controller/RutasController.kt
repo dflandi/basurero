@@ -26,7 +26,7 @@ class RutasController {
     }
 
     //localhost:8081/students/changeName
-    @PostMapping("/change/timeRoutes}")
+    @PostMapping("/other/timeRoutes}")
     fun updateOtherTimeRoutes (@RequestBody tiempoRutasDto: TiempoRutasDto):Boolean?{
         return  rutasService.updateOtherTimeRoutes(tiempoRutasDto)
     }

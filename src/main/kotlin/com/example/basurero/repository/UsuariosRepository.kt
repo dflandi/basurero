@@ -1,5 +1,4 @@
 package com.example.basurero.repository
-import com.example.basurero.dto.User
 import com.example.basurero.model.Usuarios
 
 
@@ -13,8 +12,7 @@ interface UsuariosRepository: JpaRepository<Usuarios, Long>{
     @Query(nativeQuery=true)
     fun getListName( @Param("nombre") nombre:String?) : List <Usuarios>?
 
-    @Query(nativeQuery=true)
-    fun newNameUser( @Param("userName") userName: User) : List <Usuarios>?
+
 }
 
 

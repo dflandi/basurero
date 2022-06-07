@@ -1,7 +1,6 @@
 package com.example.basurero.controller;
 
 
-import com.example.basurero.dto.User
 import com.example.basurero.model.Usuarios
 import com.example.basurero.service.UsuariosService
 import org.springframework.beans.factory.annotation.Autowired
@@ -34,10 +33,7 @@ class UsuariosController {
     fun save(@RequestBody usuarios: Usuarios):Usuarios{
         return usuariosService.save(usuarios)
     }
-    @PostMapping("login/{login}")
-    fun username(@RequestBody user: User):User{
-        return usuariosService.newUser(user)
-    }
+
     @PutMapping
     fun update (@RequestBody usuarios: Usuarios):Usuarios{
         return usuariosService.update(usuarios)

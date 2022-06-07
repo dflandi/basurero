@@ -18,7 +18,7 @@ interface RutasRepository: JpaRepository<Rutas, Long>{
     @Modifying
     @Transactional
     @Query(nativeQuery=true)
-    fun setOtherTimeRoutes (@Param("tiempoRutasI")  tiempoRutas: String?, @Param("nuevoTiempo") nuevoNombre:String?):List <Rutas>?
+    fun setOtherTimeRoutes (@Param("tiempoRutas")  tiempoRutas: String?, @Param("nuevoTiempo") nuevoNombre:String?):List <Rutas>?
 
 
 

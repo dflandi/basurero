@@ -1,6 +1,5 @@
 package com.example.basurero.service;
 
-import com.example.basurero.dto.User
 import com.example.basurero.model.Usuarios
 import com.example.basurero.repository.UsuariosRepository
 import org.springframework.beans.factory.annotation.Autowired
@@ -56,7 +55,5 @@ class UsuariosService {
     fun getByName (nombre: String?):List <Usuarios>?{
         return usuariosRepository.getListName(nombre)
     }
-    fun newUser(user: User): List<Usuarios>? {
-            return usuariosRepository.newNameUser(user)
-    }
+
 }
