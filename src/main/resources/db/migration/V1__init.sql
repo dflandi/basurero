@@ -6,16 +6,17 @@ edad INT NULL,
 PRIMARY KEY (id)
  );
 
-CREATE TABLE IF NOT EXISTS Rutas(
+CREATE TABLE IF NOT EXISTS Padres(
 id SERIAL,
-nombreRutas VARCHAR (100)  NULL,
-tiempoRutas VARCHAR (100) NULL,
+nombres VARCHAR (100)  NULL,
+cedula VARCHAR (100) NULL,
+telefono VARCHAR (100) NULL,
 PRIMARY KEY (id)
 );
-CREATE TABLE IF NOT EXISTS Camion(
+CREATE TABLE IF NOT EXISTS Docentes(
     id SERIAL,
-    horas VARCHAR (100) NULL,
-    dias VARCHAR (100) NULL,
+    nombre VARCHAR (100) NULL,
+    edad VARCHAR (100) NULL,
     PRIMARY KEY (id)
 
  );

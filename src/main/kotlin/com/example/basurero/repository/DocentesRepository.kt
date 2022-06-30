@@ -2,18 +2,17 @@ package com.example.basurero.repository
 
 
 
-import com.example.basurero.model.Camion
-import com.example.basurero.model.Rutas
+import com.example.basurero.model.Docentes
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.query.Param
 
-interface CamionRepository: JpaRepository<Camion, Long>{
-fun findById(id:Long?):Camion?
+interface DocentesRepository: JpaRepository<Docentes, Long>{
+fun findById(id:Long?):Docentes?
 
     @Query(nativeQuery=true)
 
-    fun getListTruck( @Param("horas") horas:String?) : List <Camion>?
+    fun getListTruck( @Param("nombre") nombre:String?) : List <Docentes>?
 }
 
 
