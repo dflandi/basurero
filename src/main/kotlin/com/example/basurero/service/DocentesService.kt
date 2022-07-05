@@ -102,10 +102,34 @@ class DocentesService {
         }
         return sum
     }
-    fun findDecenaSuperior (sum: Long): Long { // buscar la decena superior
+    fun findDecenaSuperior (sum: Int): Int {
+        val division: Int = sum /10
+        val decenaSup = (division+1) * 10
+        var response: Int= decenaSup - sum
+        if(decenaSup == 10)
+        response=0
+        return response
 
-        return 1
     }
+    /*fun validarCedula (cedula:String): Boolean {
+        val sum= sumaValores(cedula)
+        val resta = findDecenaSuperior(sum)
+        //obetener 10 digito de la cedula [9
+        if (resta = decmDigito)
+        return true
+    }*/
+    fun ultimoDigito(cedula:String):Int{
+      val ultimo = cedula.last().toString()
+        val response = Integer.parseInt(ultimo)
+        return response
+    }
+    fun validarTotal(cedula: String):Boolean{
+        val suma = sumaValores(cedula)
+        val resta = findDecenaSuperior(suma.toInt())
+        val ultimo= ultimoDigito(cedula)
+        return resta == ultimo
+    }
+
 
 
 }
