@@ -56,7 +56,7 @@ class DocentesServiceTest {
     }
     @Test
     fun validateSerialIsInvalid(){
-        val response =  docentesService.validateSerialNumber("2121544")
+        val response =  docentesService.validateSerialNumber("010720192")
         Assertions.assertEquals(false,response)
     }
 
@@ -69,7 +69,8 @@ class DocentesServiceTest {
     @Test
     fun validateSerialIsIncomplete() {
         Assertions.assertThrows(Exception::class.java) {
-            val response = docentesService.validateSerialNumber("5")
+            val response = docentesService.validateSerialNumber("0107201")
+            Assertions.assertEquals(0, response)
         }
     }
     @Test
@@ -79,17 +80,17 @@ class DocentesServiceTest {
     }
     @Test
     fun multiOfCoeAndDigito(){
-        val response = docentesService.multi(2, 7)
-        Assertions.assertEquals(5, response)
+        val response = docentesService.multi(2, 0)
+        Assertions.assertEquals(0, response)
     }
     @Test
     fun validateSumaNui(){
-        val response=docentesService.sumaValores("0301707030")
-        Assertions.assertEquals(20, response)
+        val response=docentesService.sumaValores("010720191")
+        Assertions.assertEquals(24, response)
     }
     @Test
     fun validateDecenaSupCuandoEsCero(){
-        val response=docentesService.findDecenaSuperior(20)
+        val response=docentesService.findDecenaSuperior(0)
         Assertions.assertEquals(0, response)
     }
     @Test
@@ -99,13 +100,13 @@ class DocentesServiceTest {
     }
     @Test
     fun validarCedulaValida(){
-        val response=docentesService.ultimoDigito("34")
-        Assertions.assertEquals(4, response)
+        val response=docentesService.ultimoDigito("5")
+        Assertions.assertEquals(5, response)
     }
     @Test
     fun validarCedulaNoEsValida(){
-        val response=docentesService.findDecenaSuperior(13)
-        Assertions.assertEquals(7, response)
+        val response=docentesService.findDecenaSuperior(20)
+        Assertions.assertEquals(10, response)
     }
     @Test
     fun  testUltimoDigito(){
