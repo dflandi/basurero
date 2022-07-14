@@ -116,7 +116,7 @@ class DocentesServiceTest {
     @Test
     fun validarTotales(){
         val response= docentesService.validarTotal("0107201915")
-        Assertions.assertEquals(true, response)
+        Assertions.assertEquals(false, response)
     }
 
 
